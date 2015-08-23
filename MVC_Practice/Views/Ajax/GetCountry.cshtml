@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "GetCountry";
+}
+<script type="text/javascript" src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $("#state").prop("disabled", true);
+        $("#country").change(function () {
+
+
+            if ($("#country").val() != "Please Select") {
+
+
+                var options = {};
+                options.url = "/Ajax/GetStates";
+                options.type = "POST";
+                options.data = JSON.stringify({ country: $("#country").val() });
+                options.dataType = "json";
+                options.contentType = "application/json";
+                options.success = function (states) {
+
+                    $("#state").empty();
+                    for (var i = 0; i < states.length; i++) {
+
+                        $("#state").append("<option>" + states[i] + "</option>");
+
+                    }
+                    $("#state").prop("disabled", false);
+
+                };
+                options.error = function () { alert("Error retrieving states!"); };
+                $.ajax(options);
+            }
+            else {
+                $("#state").empty();
+                $("#state").prop("disabled", true);
+            }
+            
+
+        });
+
+    });
+
+
+
+
+</script>
+<h2>
+    GetCountry</h2>
+@using (Html.BeginForm("GetCountry", "Ajax", FormMethod.Post))
+{ 
+    <div>
+        Select Country:</div>
+    @Html.DropDownList("country", ViewBag.country as SelectList)<br />
+    <br />
+    <div>
+        Select State:</div>
+    <select id="state">
+    </select><br />
+    <br />
+    
+    
+    <input type="submit" value="Submit" />
+
+
+}

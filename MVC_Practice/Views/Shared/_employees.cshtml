@@ -1,0 +1,16 @@
+﻿@model MVC_Practice.Models.Employee
+@if (Model.EmployeeId == null)
+{
+    <h2>
+        No Employee exists</h2>
+}
+else
+{
+    
+    <h2>
+        Employee Id:@Model.EmployeeId<br />
+        Employee Name:@Model.EmployeeName<br />
+        Employee Gender:@Model.EmployeeGender<br />
+        Department ID:@Model.DepartmentId<br />
+    </h2>
+}

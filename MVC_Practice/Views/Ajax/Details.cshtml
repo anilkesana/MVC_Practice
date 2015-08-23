@@ -1,0 +1,27 @@
+﻿@model MVC_Practice.Models.Employee
+
+
+<fieldset>
+    <legend>Details</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.EmployeeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmployeeName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.EmployeeGender)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmployeeGender)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.DepartmentId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DepartmentId)
+    </div>
+</fieldset>

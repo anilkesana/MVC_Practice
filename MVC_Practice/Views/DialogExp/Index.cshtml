@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript"></script>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.20.min.js"></script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+
+
+        $("#dialog-detail").dialog({
+            title: 'View User',
+            autoOpen: false,
+            resizable: false,
+            width: 400,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+
+            },
+            buttons: {
+                "Close": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $("#lnkCreate").live("click", function (e) {
+            alert('show');
+            $("#dialog-detail").dialog('open');
+            return false;
+        });
+
+        $(".lnkEdit").live("click", function (e) {
+            alert('show');
+            $("#dialog-detail").dialog('open');
+
+            return false;
+        });
+
+        $(".lnkDelete").live("click", function (e) {
+            alert('show');
+            $("#dialog-detail").dialog('open');
+
+            return false;
+        });
+
+        $(".lnkDetail").live("click", function (e) {
+            alert('show');
+            $("#dialog-detail").dialog('open');
+
+            return false;
+        });
+        $(".lnkShow").live("click", function (e) {
+
+            alert('show');
+            //$("#dialog-detail").dialog('open');
+
+            return false;
+        });
+
+
+    });
+</script>
+<div id="dialog-detail" style="display: none">
+    <p>
+        This is a create user
+    </p>
+</div>
+<h2>
+    Users List</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { id = "lnkCreate" }) |
+    @Html.ActionLink("Edit", "Edit", null, new { @class = "lnkEdit" }) |
+    @Html.ActionLink("Details", "Details", null, new { @class = "lnkDetail" }) |
+    @Html.ActionLink("Delete", "Delete", null, new { @class = "lnkDelete" })|
+    @Html.ActionLink("Show", "Show", null, new { @class = "lnkShow" })
+</p>

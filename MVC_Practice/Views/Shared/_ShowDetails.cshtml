@@ -1,0 +1,20 @@
+﻿@model MVC_Practice.Models.Product
+
+
+@if (Model.Prodcode == null)
+{ 
+<h1>Invalid Product Code</h1>
+    
+}
+else
+{ 
+<h1>Product Details</h1>
+    <h2>
+    Product Code:@Model.Prodcode<br />
+    Product Name:@Model.ProdName<br />
+    Product Quant:@Model.ProdQty
+    
+    </h2>
+
+}
+
